@@ -13,8 +13,8 @@
 		<div class="space-x-6">
 			<a href="/about">About</a>
 			<a href="/safety">Safety</a>
-			<a href="/blog">Blog</a>
+			<a href="/logs">Changelog</a>
 		</div>
-		<Button class="text-white">Join</Button>
+		<Button>Join</Button>
 	</div>
 </nav>
