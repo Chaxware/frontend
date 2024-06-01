@@ -12,7 +12,7 @@
 			<ExternalLink size={18} />
 		</Button>
 	</a>
-	<h1 class="text-7xl font-bold tracking-tight">Customizable, open-source<br /> chat app.</h1>
+	<h1 class="text-4xl sm:text-7xl font-bold tracking-tight">Customizable, open-source<br /> chat app.</h1>
     <p class="text-gray-500">Give chax a try - make an account.</p>
     <Separator class="invisible my-2" />
 	<div class="h-fit flex gap-2 p-4 border border-blue-600/40 border-dashed flex-row lg:w-2/4">
