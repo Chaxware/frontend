@@ -15,6 +15,6 @@
 			<a href="/safety">Safety</a>
 			<a href="/logs">Changelog</a>
 		</div>
-		<Button>Join</Button>
+		<a href="/chat"><Button>Chat Now</Button></a>
 	</div>
 </nav>
