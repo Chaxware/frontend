@@ -1,7 +1,19 @@
 <script lang="ts">
-	import { Paperclip, Search, Send } from 'lucide-svelte';
+	import { Paperclip, Search, Send, Hash } from 'lucide-svelte';
 	import type { PageData } from './$types';
 	import Message from '@/components/chat/Message.svelte';
+	import ChannelList from '@/components/chat/ChannelList/ChannelList.svelte';
+
+    let ChannelsList = [
+        { name: "General" },
+        { name: "Random" },
+        { name: "Design" },
+        { name: "Development" },
+        { name: "Marketing" },
+        { name: "Sales" },
+        { name: "Support" },
+        { name: "Management" },
+    ];
 
 	export let data: PageData;
 </script>
@@ -16,18 +28,21 @@
 					<Search size={18} color="#A6ADC8" />
 					<input required placeholder="Search" type="text" id="searchInput" />
 				</div>
+				<div class="pt-4">
+                    <ChannelList channels={ChannelsList}/>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="flex flex-1 flex-col">
 		<div class="border-b-[1px] border-gray-600 px-8 py-4">{`{channelName}`}</div>
 		<div class="flex flex-1 flex-col px-8 py-4">
-			<div class="flex-1 flex justify-end gap-4 pb-4 flex-col">
-                <Message message="How you doing?"/>
-                <Message message="I am doing fine. What about you?"/>
-                <Message message="I am fine too. How is the project coming along?"/>
-                <Message message="Which project?"/>
-                <Message message="Chax the chat app"/>
+			<div class="flex flex-1 flex-col justify-end gap-4 pb-4">
+				<Message message="How you doing?" />
+				<Message message="I am doing fine. What about you?" />
+				<Message message="I am fine too. How is the project coming along?" />
+				<Message message="Which project?" />
+				<Message message="Chax the chat app" />
 			</div>
 			<div class="messageBox">
 				<div class="fileUploadWrapper">
@@ -48,8 +63,6 @@
 <style lang="scss">
 	.searchBox {
 		display: flex;
-		align-items: center;
-		justify-content: center;
 		padding: 8px 10px;
 		border-radius: 4px;
 		font-size: 0.9rem;
