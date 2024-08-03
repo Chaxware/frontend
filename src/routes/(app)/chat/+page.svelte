@@ -1,26 +1,27 @@
 <script lang="ts">
-	import { Paperclip, Search, Send, Hash } from 'lucide-svelte';
+	import { Paperclip, Search, Send } from 'lucide-svelte';
 	import type { PageData } from './$types';
 	import Message from '@/components/chat/Message.svelte';
 	import ChannelList from '@/components/chat/ChannelList/ChannelList.svelte';
+    import Sidebar from '@/components/chat/Sidebar.svelte';
 
-    let ChannelsList = [
-        { name: "General" },
-        { name: "Random" },
-        { name: "Design" },
-        { name: "Development" },
-        { name: "Marketing" },
-        { name: "Sales" },
-        { name: "Support" },
-        { name: "Management" },
-    ];
+	let ChannelsList = [
+		{ name: 'General' },
+		{ name: 'Random' },
+		{ name: 'Design' },
+		{ name: 'Development' },
+		{ name: 'Marketing' },
+		{ name: 'Sales' },
+		{ name: 'Support' },
+		{ name: 'Management' }
+	];
 
 	export let data: PageData;
 </script>
 
 <div class="flex">
 	<div class="w flex h-dvh w-80 border-r-[1px] border-gray-600">
-		<div class="border-r-[1px] border-gray-600">sidebar</div>
+		<Sidebar />
 		<div class="w-full">
 			<div class="border-b-[1px] border-gray-600 px-4 py-4">{`{serverName}`}</div>
 			<div class="p-2">
@@ -29,7 +30,7 @@
 					<input required placeholder="Search" type="text" id="searchInput" />
 				</div>
 				<div class="pt-4">
-                    <ChannelList channels={ChannelsList}/>
+					<ChannelList channels={ChannelsList} />
 				</div>
 			</div>
 		</div>
