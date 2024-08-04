@@ -1,8 +1,8 @@
 import { error, type Load } from '@sveltejs/kit';
 
 const resourceUrl = process.env.NODE_ENV === 'production' 
-? "http://localhost:8787"
-: "https://chaxback.chax.workers.dev";
+? "https://chaxback.chax.workers.dev"
+: "http://localhost:8787";
 
 /** @type {import('@sveltejs/kit').Load} */
 export const load: Load = async ({ fetch }) => {
