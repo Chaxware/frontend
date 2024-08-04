@@ -1,5 +1,7 @@
 <script type="ts">
     import { Bell, Settings } from 'lucide-svelte';
+
+    export let hubs;
 </script>
 
 <div class="flex w-24 flex-col items-center gap-8 border-r-[1px] border-gray-600 p-3">
@@ -10,22 +12,16 @@
     />
     <Bell color="#A6ADC8" />
     <div class="flex flex-col gap-4">
-        <div class="flex flex-col">
-            <img
-                src="https://unsplash.com/photos/swXFC8du1hs/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTR8fGd0M3JzfGVufDB8fHx8MTcyMjQxNTk3NHww&force=true&w=640"
-                alt=""
-                class="aspect-square cursor-pointer rounded-full object-cover"
-            />
-            <span class="mt-2 hidden text-center text-xs">Porsche fanboys</span>
-        </div>
-        <div class="flex flex-col">
-            <img
-                src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbXB1dGVyfGVufDB8fDB8fHww"
-                alt=""
-                class="aspect-square cursor-pointer rounded-full object-cover"
-            />
-            <span class="mt-2 hidden text-center text-xs">PC elitists</span>
-        </div>
+        {#each hubs as hub}
+            <div class="flex flex-col">
+                <img
+                    src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbXB1dGVyfGVufDB8fDB8fHww"
+                    alt=""
+                    class="aspect-square cursor-pointer rounded-full object-cover"
+                />
+                <span class="mt-2  text-center text-xs">{hub.name}</span>
+            </div>
+        {/each}
     </div>
     <div class="mt-auto flex flex-col items-center gap-4">
         <Settings color="#A6ADC8" />

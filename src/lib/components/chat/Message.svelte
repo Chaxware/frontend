@@ -4,8 +4,16 @@
         profile: "https://mighty.tools/mockmind-api/content/human/57.jpg",
     };
     let message = "How you doing?";
+    let timestamp = "2024-08-04T18:20:39.000Z"
 
-    export { user, message };
+    let date = Intl.DateTimeFormat("en-US", {
+        dateStyle: "short",
+        timeStyle: "short",
+    }).format(new Date(timestamp));
+
+    console.log(date);          
+
+    export { user, message, timestamp };
 </script>
 
 <div class="message flex">
@@ -13,7 +21,7 @@
     <div class="flex flex-col">
         <div>
             <span class="name">{user.name}</span><span class="timestamp ms-2 text-muted"
-                >Today at 12:02 AM</span
+                >{date}</span
             >
         </div>
         <span class="message-content">{message}</span>

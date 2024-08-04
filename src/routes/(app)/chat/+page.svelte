@@ -16,34 +16,49 @@
 		{ name: 'Management' }
 	];
 
+    let profiles: any = {
+        "Shamblonaut": "https://mighty.tools/mockmind-api/content/human/57.jpg",
+        "FoodieFan": "https://mighty.tools/mockmind-api/content/human/58.jpg",
+        "TasteTester": "https://mighty.tools/mockmind-api/content/human/59.jpg",
+        "PastryPro": "https://mighty.tools/mockmind-api/content/human/60.jpg",
+        "SpiceQueen": "https://mighty.tools/mockmind-api/content/human/61.jpg",
+        "ChefMike": "https://mighty.tools/mockmind-api/content/human/62.jpg",
+        "BakerBella": "https://mighty.tools/mockmind-api/content/human/63.jpg",
+        "FoodLover99": "https://mighty.tools/mockmind-api/content/human/64.jpg",
+    }
+    
 	export let data: PageData;
+
+    const hubs = data.hubs.hubs
+    const messages = data.messages.messages
 </script>
 
 <div class="flex">
 	<div class="w flex h-dvh w-80 border-r-[1px] border-gray-600">
-		<Sidebar />
+		<Sidebar {hubs}/>
 		<div class="w-full">
-			<div class="border-b-[1px] border-gray-600 px-4 py-4">{`{serverName}`}</div>
+			<div class="border-b-[1px] border-gray-600 px-4 py-4">{hubs[0].name}</div>
 			<div class="p-2">
 				<div class="searchBox">
 					<Search size={18} color="#A6ADC8" />
 					<input required placeholder="Search" type="text" id="searchInput" />
 				</div>
 				<div class="pt-4">
-					<ChannelList channels={ChannelsList} />
+					<ChannelList channels={ChannelsList} {hubs}/>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="flex flex-1 flex-col">
-		<div class="border-b-[1px] border-gray-600 px-8 py-4">{`{channelName}`}</div>
+		<div class="border-b-[1px] border-gray-600 px-8 py-4">{hubs[0].channels[0].name}</div>
 		<div class="flex flex-1 flex-col px-8 py-4">
-			<div class="flex flex-1 flex-col justify-end gap-4 pb-4">
-				<Message message="How you doing?" />
-				<Message message="I am doing fine. What about you?" />
-				<Message message="I am fine too. How is the project coming along?" />
-				<Message message="Which project?" />
-				<Message message="Chax the chat app" />
+			<div class="flex flex-col overflow-y-scroll gap-4 pb-4" style="height: calc(100dvh - 9rem);">
+                {#if messages.length === 0}
+                    <div class="text-center text-gray-400">No messages yet</div>
+                {/if}
+                {#each messages.slice().reverse() as message}
+                    <Message user={{name: message.userId, profile: profiles[message.userId]}} message={message.text} timestamp={message.createdAt}/>
+                {/each}
 			</div>
 			<div class="messageBox">
 				<div class="fileUploadWrapper">

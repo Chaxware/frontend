@@ -5,7 +5,7 @@
     export let channels = [
         { name: "General" },
         { name: "Random" },
-    ];
+    ], hubs;
 </script>
 
 <div class="channel-list">
@@ -16,8 +16,8 @@
         Channels
     </div>
     <div class="pt-2 flex flex-col gap-2">
-        {#each channels as channel}
-            <Channel channelName={channel.name} />
+        {#each hubs[0].channels as channel}
+            <Channel channelName={channel.name} />  
         {/each}
     </div>
 </div>
