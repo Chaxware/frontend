@@ -8,12 +8,7 @@
 	let ChannelsList = [
 		{ name: 'General' },
 		{ name: 'Random' },
-		{ name: 'Design' },
-		{ name: 'Development' },
-		{ name: 'Marketing' },
-		{ name: 'Sales' },
-		{ name: 'Support' },
-		{ name: 'Management' }
+		{ name: 'Design' }
 	];
 
     let profiles: any = {
@@ -26,11 +21,8 @@
         "BakerBella": "https://mighty.tools/mockmind-api/content/human/63.jpg",
         "FoodLover99": "https://mighty.tools/mockmind-api/content/human/64.jpg",
     }
-    
 	export let data: PageData;
-
-    const hubs = data.hubs.hubs
-    const messages = data.messages.messages
+    const {hubs, messages} = data;
 </script>
 
 <div class="flex">
@@ -51,8 +43,8 @@
 	</div>
 	<div class="flex flex-1 flex-col">
 		<div class="border-b-[1px] border-gray-600 px-8 py-4">{hubs[0].channels[0].name}</div>
-		<div class="flex flex-1 flex-col px-8 py-4">
-			<div class="flex flex-col overflow-y-scroll gap-4 pb-4" style="height: calc(100dvh - 9rem);">
+		<div class="flex flex-1 flex-col ps-8 pe-7">
+			<div class="flex flex-col-reverse overflow-y-scroll pb-4" style="height: calc(100dvh - 9rem);">
                 {#if messages.length === 0}
                     <div class="text-center text-gray-400">No messages yet</div>
                 {/if}

@@ -11,12 +11,10 @@
         timeStyle: "short",
     }).format(new Date(timestamp));
 
-    console.log(date);          
-
     export { user, message, timestamp };
 </script>
 
-<div class="message flex">
+<div class="message flex hover:bg-gray-900 p-3 rounded-xl">
     <img src="{user.profile}" alt="user profile" />
     <div class="flex flex-col">
         <div>
