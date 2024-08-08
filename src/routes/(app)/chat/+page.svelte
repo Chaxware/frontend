@@ -48,7 +48,7 @@
                 {#if messages.length === 0}
                     <div class="text-center text-gray-400">No messages yet</div>
                 {/if}
-                {#each messages.slice().reverse() as message}
+                {#each messages.slice() as message}
                     <Message user={{name: message.userId, profile: profiles[message.userId]}} message={message.text} timestamp={message.createdAt}/>
                 {/each}
 			</div>
