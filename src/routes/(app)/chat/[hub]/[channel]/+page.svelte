@@ -4,6 +4,7 @@
 	import Sidebar from '@/components/chat/Sidebar.svelte';
 	import { hub, channel, messages } from '@/components/chat/stores';
 	import ChannelList from '@/components/chat/ChannelList/ChannelList.svelte';
+	import { enhance } from '$app/forms';
 
 	let profiles: any = {
 		Shamblonaut: 'https://mighty.tools/mockmind-api/content/human/57.jpg',
@@ -17,29 +18,13 @@
 	};
 	export let data: any;
 	let { hubs } = data;
-    let msgs = $messages
+
 	let msg: string = '';
-
-	function addMessage() {
-		if (!msg) return;
-		let newMessage = {
-			userId: 'Shamblonaut',
-			text: msg,
-			createdAt: new Date().toISOString()
-		};
-		msgs = [newMessage, ...messages];
-		msg = '';
-	}
-
-    // $: console.log({
-	// 	Hub: $hub.name,
-	// 	Channel: $hub.channels.map((channel: { name: string }) => channel.name)
-	// });
 </script>
 
 <div class="flex">
 	<div class="w flex h-dvh w-80 border-r-[1px] border-gray-600">
-		<Sidebar {hubs} /> 
+		<Sidebar {hubs} />
 		<div class="w-full">
 			<div class="border-b-[1px] border-gray-600 px-4 py-4">
 				{$hub.name}
@@ -56,8 +41,8 @@
 		</div>
 	</div>
 	<div class="flex flex-1 flex-col">
-        <div class="border-b-[1px] border-gray-600 px-8 py-4">
-            {$channel.name}
+		<div class="border-b-[1px] border-gray-600 px-8 py-4">
+			{$channel.name}
 		</div>
 		<div class="flex flex-1 flex-col pe-7 ps-8">
 			<div
@@ -82,12 +67,15 @@
 					</label>
 					<input type="file" id="file" name="file" />
 				</div>
-				<form on:submit|preventDefault={addMessage} class="flex w-full">
+				<form method="POST" class="flex w-full" use:enhance>
+					<input type="hidden" name="userId" value="Shamblonaut" />
 					<input
 						placeholder="Write some sweet words..."
 						type="text"
+						name="message"
 						id="messageInput"
 						bind:value={msg}
+						autocomplete="off"
 					/>
 					<button id="sendButton" type="submit">
 						<Send color="#A6ADC8" />

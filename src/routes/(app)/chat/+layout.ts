@@ -18,10 +18,7 @@ export const load: Load = async ({ fetch, params }) => {
 
     hub.set(hub_res_data);
 
-    console.log(hub_list_data)
-
 	if (params.channel === undefined) {
-        console.log(hub_res_data.channels[0].id)
 		redirect(301, `/chat/${params.hub}/${hub_res_data.channels[0].id}`);
 	}
 
