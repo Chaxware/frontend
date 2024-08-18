@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { Hash } from 'lucide-svelte';
-    export let channelName = "General";
+	export let channel;
 </script>
 
-<div class="channel">
+<a href={channel.id} class="channel" data-sveltekit-preload-data=false>
 	<div class="rounded bg-[#313244] p-1">
 		<Hash size={18} color="#A6ADC8" />
 	</div>
-	{channelName}
-</div>
+	{channel.name}
+</a>
 
 <style lang="scss">
 	.channel {
