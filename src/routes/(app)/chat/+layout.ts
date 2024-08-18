@@ -3,7 +3,7 @@ import { hub, channel, messages } from '@/components/chat/stores';
 
 const src_url =
 	process.env.NODE_ENV === 'production'
-		? 'https://chaxback.chax.workers.dev'
+		? 'https://chax-backend.vercel.app'
 		: 'http://localhost:3000';
 
 /** @type {import('@sveltejs/kit').Load} */
