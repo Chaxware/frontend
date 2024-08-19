@@ -53,7 +53,15 @@
 					</label>
 					<input type="file" id="file" name="file" />
 				</div>
-				<form method="POST" class="flex w-full" use:enhance>
+				<form
+					method="POST"
+					class="flex w-full"
+					use:enhance
+					on:submit={() => {
+						msg = '';
+						console.log('cleared');
+					}}
+				    >
 					<input type="hidden" name="userId" value="Shamblonaut" />
 					<input
 						placeholder="Write some sweet words..."
@@ -62,9 +70,6 @@
 						id="messageInput"
 						bind:value={msg}
 						autocomplete="off"
-						on:submit={() => {
-							msg = '';
-						}}
 					/>
 					<button id="sendButton" type="submit">
 						<Send color="#A6ADC8" />
