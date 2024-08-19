@@ -65,6 +65,9 @@
 						id="messageInput"
 						bind:value={msg}
 						autocomplete="off"
+						on:submit={() => {
+							msg = '';
+						}}
 					/>
 					<button id="sendButton" type="submit">
 						<Send color="#A6ADC8" />
