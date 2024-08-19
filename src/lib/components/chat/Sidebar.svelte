@@ -16,7 +16,7 @@
 			<div class="flex flex-col">
 				<a href="/chat/{hubInfo.id}" data-sveltekit-preload-data="tap">
 					<img
-						src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbXB1dGVyfGVufDB8fDB8fHww"
+						src={`https://ui-avatars.com/api/?name=${hubInfo.name}&background=c0aede&color=fff`}
 						alt=""
 						class="aspect-square cursor-pointer rounded-full object-cover"
 					/>
@@ -29,9 +29,11 @@
 		<Settings color="#A6ADC8" />
 		<hr class="w-full border-gray-600" />
 		<img
-			src="https://mighty.tools/mockmind-api/content/human/57.jpg"
+			src="https://api.dicebear.com/9.x/adventurer/svg?backgroundColor=c0aede&seed=Shamblonaut"
 			alt="pfp"
 			class="rounded-full"
+            height="50" 
+            width="50"
 		/>
 	</div>
 </div>

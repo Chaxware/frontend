@@ -16,7 +16,14 @@ export const load: Load = async ({ fetch, params }) => {
 
 	const [hub_res_data, hub_list_data] = await Promise.all([hub_res, hub_list_res]);
 
-    hub.set(hub_res_data);
+	hub.set(hub_res_data);
+
+	if (params.hub === undefined) {
+		return {
+			status: 200,
+			hubs: hub_list_data.hubs
+		};
+	}
 
 	if (params.channel === undefined) {
 		redirect(301, `/chat/${params.hub}/${hub_res_data.channels[0].id}`);

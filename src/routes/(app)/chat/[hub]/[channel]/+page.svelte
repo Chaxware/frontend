@@ -5,17 +5,10 @@
 	import { hub, channel, messages } from '@/components/chat/stores';
 	import ChannelList from '@/components/chat/ChannelList/ChannelList.svelte';
 	import { enhance } from '$app/forms';
+	//     <img
+	//   src="https://api.dicebear.com/9.x/adventurer/svg?seed=Harley&backgroundColor[]"
+	//   alt="avatar" />
 
-	let profiles: any = {
-		Shamblonaut: 'https://mighty.tools/mockmind-api/content/human/57.jpg',
-		FoodieFan: 'https://mighty.tools/mockmind-api/content/human/58.jpg',
-		TasteTester: 'https://mighty.tools/mockmind-api/content/human/59.jpg',
-		PastryPro: 'https://mighty.tools/mockmind-api/content/human/60.jpg',
-		SpiceQueen: 'https://mighty.tools/mockmind-api/content/human/61.jpg',
-		ChefMike: 'https://mighty.tools/mockmind-api/content/human/62.jpg',
-		BakerBella: 'https://mighty.tools/mockmind-api/content/human/63.jpg',
-		FoodLover99: 'https://mighty.tools/mockmind-api/content/human/64.jpg'
-	};
 	export let data: any;
 	let { hubs } = data;
 
@@ -53,11 +46,7 @@
 					<div class="text-center text-gray-400">No messages yet</div>
 				{/if}
 				{#each $messages as message}
-					<Message
-						user={{ name: message.userId, profile: profiles[message.userId] }}
-						message={message.text}
-						timestamp={message.createdAt}
-					/>
+					<Message {message} timestamp={message.createdAt} />
 				{/each}
 			</div>
 			<div class="messageBox">
