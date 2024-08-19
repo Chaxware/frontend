@@ -5,7 +5,7 @@ const src_url =
 		? 'https://chax-backend.vercel.app'
 		: 'http://localhost:3000';
 
-export const actions: Actions = {
+export const actions: Actions = {   
 	default: async ({ request, params }) => {
 		const formData = await request.formData();
 		const message = formData.get('message');
@@ -19,6 +19,5 @@ export const actions: Actions = {
 			body: JSON.stringify({ text: message, userId: userId })
 		})
 			.then((res) => res.json())
-			.then((res) => console.log(res));
 	}
 };
