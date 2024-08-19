@@ -5,9 +5,6 @@
 	import { hub, channel, messages } from '@/components/chat/stores';
 	import ChannelList from '@/components/chat/ChannelList/ChannelList.svelte';
 	import { enhance } from '$app/forms';
-	//     <img
-	//   src="https://api.dicebear.com/9.x/adventurer/svg?seed=Harley&backgroundColor[]"
-	//   alt="avatar" />
 
 	export let data: any;
 	let { hubs } = data;
