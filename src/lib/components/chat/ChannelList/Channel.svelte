@@ -20,5 +20,8 @@
 		font-size: 0.9rem;
 		gap: 0.5rem;
 		color: #cdd6f4;
+        &:hover {
+            background-color: #4b556328;
+        }
 	}
 </style>
